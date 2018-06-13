@@ -1,0 +1,35 @@
+<!--index.wxml-->
+<view class="container">
+  <view>{{ msg }}</view>
+  <button bindtap="turnToOwner">我是拥有者</button>
+
+  <view wx:if="{{view == 'WEBVIEW'}}"> WEBVIEW </view>
+  <view wx:elif="{{view == 'APP'}}"> APP </view>
+  <view wx:else="{{view == 'MINA'}}"> MINA </view>
+
+  <template name="staffName">
+    <view>
+      FirstName: {{firstName}}, LastName: {{lastName}}
+    </view>
+  </template>
+  <template is="staffName" data="{{...staffA}}"></template>
+  <template is="staffName" data="{{...staffB}}"></template>
+  <template is="staffName" data="{{...staffC}}"></template>
+
+  <view bindtap="add"> {{count}} </view>
+
+  <view hidden="{{flag? true : false}}">Hidden</view>
+
+  <view>{{object.key}} {{array[0]}}</view>
+
+  <checkbox checked="{{false}}"></checkbox>
+
+  <block wx:if="{{ck}}">
+    <view> view1 </view>
+    <view> view2 </view>
+  </block>
+
+   <button bindtap="turnToUser">我是使用者</button>
+
+
+</view>
